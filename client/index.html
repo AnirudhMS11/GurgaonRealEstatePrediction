@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gurgaon Real Estate</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Gurgaon Real Estate Price Predictor</h1>
+    <form id="predict-form">
+      <label for="area">Area (sq.ft):</label>
+      <input type="number" id="area" name="AREA" min="450" max="12000" required>
+ 
+      <label for="bhk">BHK:</label>
+      <input type="number" id="bhk" name="BEDROOM NUM" min="1" max="9" required>
+ 
+      <label for="property">Property Type:</label>
+      <select id="property" name="PROPERTY_TYPE" required></select>
+ 
+      <label for="location">Location:</label>
+      <select id="location" name="location" required></select>
+ 
+      <button type="submit">Predict Price</button>
+    </form>
+ 
+    <div id="result"></div>
+  </div>
+ 
+  <script src="script.js"></script>
+</body>
+</html>
