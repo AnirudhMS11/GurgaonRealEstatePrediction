@@ -1,0 +1,46 @@
+#Launch EC2 Instance
+1.Choose Ubuntu 
+2.Open ports in security group: 22 (SSH), 80 (HTTP), (optionally 443 for HTTPS)
+
+#Connect to EC2
+ssh -i your-key.pem ubuntu@your-ec2-ip
+  
+#Install Required Packages 
+sudo apt update
+sudo apt install python3-pip python3-venv nginx
+ 
+#Set Up Flask Backend
+cd server
+python3 -m venv env_flask
+source env_flask/bin/activate
+pip install -r requirements.txt
+python app.py  # Flask should run on port 5000
+ 
+#Configure NGINX
+Create config file and paste content of provided gre.conf:
+
+sudo vi /etc/nginx/sites-available/gre.conf
+
+server{
+        listen 80;
+        server_name gre;
+        root /home/ubuntu/RM/client;
+        index index.html;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+
+        location /api/{
+                rewrite ^/api(.*) $1 break;
+                proxy_pass http://127.0.0.1:5000;
+        }
+}
+ 
+Activate config:
+sudo ln -s /etc/nginx/sites-available/gre.conf /etc/nginx/sites-enabled/
+sudo unlink /etc/nginx/sites-enabled/default  # optional
+sudo systemctl restart nginx
+ 
+#Test the Deployment
+Visit: http://<your-ec2-public-ip>

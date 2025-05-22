@@ -1,0 +1,15 @@
+server{
+        listen 80;
+        server_name gre;
+        root /home/ubuntu/RM/client;
+        index index.html;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+
+        location /api/{
+                rewrite ^/api(.*) $1 break;
+                proxy_pass http://127.0.0.1:5000;
+        }
+}
