@@ -51,4 +51,6 @@ The Gurgaon Real Estate dataset (licensed under [CDLA-Sharing 1.0](https://cdla.
 
   **Note**: This dataset is not included in this repository. Please download it directly from the Kaggle link above.
 
-> *The background image shown here is used only for demonstration purposes in the app UI and is not redistributed. Please replace it with a properly licensed image if using this project.* 
+> *The background image shown here is used only for demonstration purposes in the app UI and is not redistributed. Please replace it with a properly licensed image if using this project.*
+
+> Note: The trained model weights are not included in this repository. You can train train the model yourself using the provided notebook and the linked dataset.
