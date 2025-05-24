@@ -50,3 +50,5 @@ The Gurgaon Real Estate dataset (licensed under [CDLA-Sharing 1.0](https://cdla.
 - Evaluating the impact of property attributes on price
 
   **Note**: This dataset is not included in this repository. Please download it directly from the Kaggle link above.
+
+> *The background image shown here is used only for demonstration purposes in the app UI and is not redistributed. Please replace it with a properly licensed image if using this project.* 
